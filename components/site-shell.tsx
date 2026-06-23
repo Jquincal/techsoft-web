@@ -16,7 +16,7 @@ export function SiteShell({ children }: SiteShellProps) {
   return (
     <div className="relative min-h-screen">
       <SiteHeader />
-      <main className="overflow-x-hidden pt-24">{children}</main>
+      <main className="overflow-x-hidden pt-20">{children}</main>
       <footer className="pb-10 pt-20">
         <div className="page-shell">
           <div className="section-knot px-6 py-8 sm:px-8 lg:px-10">

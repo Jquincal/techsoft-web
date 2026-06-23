@@ -18,13 +18,13 @@ export function SiteHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <div className="page-shell pt-4">
-        <div className="flex items-center justify-between gap-3 rounded-full border border-white/60 bg-white/78 px-4 py-3 shadow-[0_24px_60px_rgba(15,23,42,0.08)] backdrop-blur-2xl sm:px-6">
+      <div className="page-shell pt-3">
+        <div className="flex items-center justify-between gap-3 rounded-full border border-white/60 bg-white/78 px-4 py-2 shadow-[0_24px_60px_rgba(15,23,42,0.08)] backdrop-blur-2xl sm:px-5">
           <Link
             href={SITE_ROUTES.home}
             className="flex min-w-0 flex-1 items-center gap-3 text-[var(--foreground)] lg:flex-none"
           >
-            <BrandLogo priority className="h-auto w-[92px] sm:w-[112px]" />
+            <BrandLogo priority className="h-10 w-10 sm:h-11 sm:w-11" />
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">
@@ -36,7 +36,7 @@ export function SiteHeader() {
                   key={item.href}
                   href={item.href}
                   className={[
-                    "rounded-full px-4 py-2 text-sm font-medium",
+                    "rounded-full px-3.5 py-1.5 text-sm font-medium",
                     active
                       ? "bg-[var(--brand-soft)] text-[var(--brand-strong)]"
                       : "text-[var(--muted-strong)] hover:bg-white hover:text-[var(--foreground)]",
@@ -53,7 +53,7 @@ export function SiteHeader() {
               href={primaryWhatsAppUrl}
               target="_blank"
               rel="noreferrer"
-              className="button-primary"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--brand)] px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 hover:bg-[var(--brand-strong)]"
             >
               <MessageCircleMore size={16} />
               WhatsApp
@@ -63,7 +63,7 @@ export function SiteHeader() {
           <button
             type="button"
             aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
-            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[var(--border)] text-[var(--foreground)] lg:hidden"
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--border)] text-[var(--foreground)] lg:hidden"
             onClick={() => setIsOpen((current) => !current)}
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
@@ -71,7 +71,7 @@ export function SiteHeader() {
         </div>
 
         {isOpen ? (
-          <div className="mt-3 rounded-[28px] border border-white/60 bg-white/92 p-4 shadow-[0_24px_60px_rgba(15,23,42,0.08)] backdrop-blur-2xl lg:hidden">
+          <div className="mt-2 rounded-[28px] border border-white/60 bg-white/92 p-4 shadow-[0_24px_60px_rgba(15,23,42,0.08)] backdrop-blur-2xl lg:hidden">
             <nav className="grid gap-2">
               {navigation.map((item) => {
                 const active = pathname ? isActive(pathname, item.matches) : false;

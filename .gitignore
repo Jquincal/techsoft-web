@@ -1,4 +1,9 @@
 .vercel/
+.next/
+node_modules/
+*.tsbuildinfo
+out/
+.env*
 Thumbs.db
 Desktop.ini
 .DS_Store

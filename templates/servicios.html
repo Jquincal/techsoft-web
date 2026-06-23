@@ -202,26 +202,26 @@
           Contáctanos
          </h2>
          <p class="lead">
-          ¿Tienes un proyecto en mente? Nos encantaría escucharte
+          ¿Tienes un proyecto en mente? Completa el formulario y se abrirá WhatsApp con tu mensaje listo para enviar.
          </p>
         </div>
        </div>
        <div class="row">
         <div class="col-lg-8">
          <div class="contact-form p-4">
-          <form>
+          <form data-form-source="Servicios" data-whatsapp-form>
            <div class="row">
             <div class="col-md-6 mb-3">
              <label class="form-label" for="name">
               Nombre *
              </label>
-             <input class="form-control" id="name" required="" type="text"/>
+             <input class="form-control" id="name" name="name" required="" type="text"/>
             </div>
             <div class="col-md-6 mb-3">
              <label class="form-label" for="email">
               Email *
              </label>
-             <input class="form-control" id="email" required="" type="email"/>
+             <input class="form-control" id="email" name="email" required="" type="email"/>
             </div>
            </div>
            <div class="row">
@@ -229,20 +229,20 @@
              <label class="form-label" for="phone">
               Teléfono
              </label>
-             <input class="form-control" id="phone" type="tel"/>
+             <input class="form-control" id="phone" name="phone" type="tel"/>
             </div>
             <div class="col-md-6 mb-3">
              <label class="form-label" for="company">
               Empresa
              </label>
-             <input class="form-control" id="company" type="text"/>
+             <input class="form-control" id="company" name="company" type="text"/>
             </div>
            </div>
            <div class="mb-3">
             <label class="form-label" for="service">
              Servicio de Interés
             </label>
-            <select class="form-select" id="service">
+            <select class="form-select" id="service" name="service">
              <option value="">
               Selecciona un servicio
              </option>
@@ -261,7 +261,7 @@
             <label class="form-label" for="budget">
              Presupuesto Estimado
             </label>
-            <select class="form-select" id="budget">
+            <select class="form-select" id="budget" name="budget">
              <option value="">
               Selecciona un rango
              </option>
@@ -283,14 +283,17 @@
             <label class="form-label" for="message">
              Mensaje *
             </label>
-            <textarea class="form-control" id="message" placeholder="Cuéntanos sobre tu proyecto..." required="" rows="5"></textarea>
+            <textarea class="form-control" id="message" name="message" placeholder="Cuéntanos sobre tu proyecto..." required="" rows="5"></textarea>
            </div>
            <div class="text-center">
             <button class="btn btn-primary btn-lg px-5" type="submit">
-             <i class="fas fa-paper-plane me-2">
+             <i class="fab fa-whatsapp me-2">
              </i>
-             Enviar Mensaje
+             Enviar por WhatsApp
             </button>
+            <p class="form-text mt-3 mb-0">
+             Al enviar, se abrirá WhatsApp con tu mensaje listo para compartir.
+            </p>
            </div>
           </form>
          </div>
@@ -298,24 +301,12 @@
         <div class="col-lg-4">
          <div class="contact-info p-4">
           <h5>
-           <i class="fas fa-map-marker-alt me-2">
-           </i>
-           Dirección
-          </h5>
-          <p class="mb-4">
-           Av. San Martín 1234
-           <br/>
-           Mendoza, Argentina
-           <br/>
-           CP 5500
-          </p>
-          <h5>
            <i class="fas fa-phone me-2">
            </i>
            Teléfono
           </h5>
           <p class="mb-4">
-           +54 261 123-4567
+           261 5753165
           </p>
           <h5>
            <i class="fas fa-envelope me-2">
@@ -323,7 +314,7 @@
            Email
           </h5>
           <p class="mb-4">
-           info@techsoftsolutions.com
+           Calvojoaquin987@gmail.com
           </p>
           <h5>
            <i class="fas fa-clock me-2">
@@ -460,24 +451,17 @@
        Contacto
       </h6>
       <div class="d-flex align-items-center mb-2">
-       <i class="fas fa-map-marker-alt text-primary me-3">
-       </i>
-       <span class="text-light">
-        Av. San Martín 1234, Mendoza, Argentina
-       </span>
-      </div>
-      <div class="d-flex align-items-center mb-2">
        <i class="fas fa-phone text-primary me-3">
        </i>
        <span class="text-light">
-        +54 261 123-4567
+        261 5753165
        </span>
       </div>
       <div class="d-flex align-items-center mb-2">
        <i class="fas fa-envelope text-primary me-3">
        </i>
        <span class="text-light">
-        info@techsoftsolutions.com
+        Calvojoaquin987@gmail.com
        </span>
       </div>
       <div class="d-flex align-items-center mb-3">
@@ -530,6 +514,7 @@
    </div>
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/contact-whatsapp.js"></script>
 
  </body>
 </html>

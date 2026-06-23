@@ -1,0 +1,20 @@
+[
+  {
+    "nombre": "María González",
+    "empresa": "CEO TechCorp",
+    "comentario": "Excelente trabajo. Entregaron nuestro sistema ERP en tiempo récord y con la más alta calidad.",
+    "estrellas": 5
+  },
+  {
+    "nombre": "Carlos Ruiz",
+    "empresa": "Director ComercialPlus",
+    "comentario": "Su app móvil incrementó nuestras ventas en un 300%. Altamente recomendados.",
+    "estrellas": 5
+  },
+  {
+    "nombre": "Ana López",
+    "empresa": "CTO InnovaTech",
+    "comentario": "Profesionales excepcionales. Su soporte técnico es incomparable en el mercado.",
+    "estrellas": 5
+  }
+]

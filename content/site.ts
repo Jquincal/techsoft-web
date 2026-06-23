@@ -109,7 +109,7 @@ export const heroCards: HeroCard[] = [
   {
     title: "ERP Starter",
     link: SITE_ROUTES.products,
-    image: "/visuals/erp-starter.svg",
+    image: "/hero/erp-starter.jpg",
     category: "Producto",
     blurb: "Operación centralizada para pequeñas empresas.",
     metric: "Inventario + facturación",
@@ -117,7 +117,7 @@ export const heroCards: HeroCard[] = [
   {
     title: "CRM Professional",
     link: SITE_ROUTES.products,
-    image: "/visuals/crm-professional.svg",
+    image: "/hero/crm-professional.jpg",
     category: "Producto",
     blurb: "Pipeline comercial y automatización en una sola vista.",
     metric: "Ventas + marketing",
@@ -125,7 +125,7 @@ export const heroCards: HeroCard[] = [
   {
     title: "Analytics Suite",
     link: SITE_ROUTES.products,
-    image: "/visuals/analytics-suite.svg",
+    image: "/hero/analytics-suite.jpg",
     category: "Producto",
     blurb: "BI claro para decidir más rápido.",
     metric: "Dashboards + predicción",
@@ -133,7 +133,7 @@ export const heroCards: HeroCard[] = [
   {
     title: "E-commerce Pro",
     link: SITE_ROUTES.products,
-    image: "/visuals/ecommerce-pro.svg",
+    image: "/hero/ecommerce-pro.jpg",
     category: "Producto",
     blurb: "Catálogo, pagos y logística bajo una misma experiencia.",
     metric: "Checkout + catálogo",
@@ -141,7 +141,7 @@ export const heroCards: HeroCard[] = [
   {
     title: "Desarrollo Web",
     link: SITE_ROUTES.services,
-    image: "/visuals/desarrollo-web.svg",
+    image: "/hero/desarrollo-web.jpg",
     category: "Servicio",
     blurb: "Sitios y plataformas con foco en performance y conversión.",
     metric: "UX + rendimiento",
@@ -149,7 +149,7 @@ export const heroCards: HeroCard[] = [
   {
     title: "Consultoría IT",
     link: SITE_ROUTES.services,
-    image: "/visuals/consultoria-it.svg",
+    image: "/hero/consultoria-it.jpg",
     category: "Servicio",
     blurb: "Arquitectura, auditoría y decisiones técnicas con criterio.",
     metric: "Escala + claridad",

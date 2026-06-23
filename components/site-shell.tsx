@@ -4,6 +4,7 @@ import {
   VISIBLE_PHONE,
   buildWhatsAppUrl,
 } from "@/lib/whatsapp";
+import { BrandLogo } from "@/components/brand-logo";
 import { SITE_NAME, SITE_ROUTES, navigation, products, services } from "@/content/site";
 import { SiteHeader } from "@/components/site-header";
 
@@ -22,12 +23,7 @@ export function SiteShell({ children }: SiteShellProps) {
             <div className="grid gap-10 lg:grid-cols-[1.2fr_0.7fr_0.7fr_1fr]">
               <div>
                 <div className="flex items-center gap-3">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#0f172a,#2563eb)] font-display text-lg font-bold text-white shadow-lg shadow-blue-500/20">
-                    T
-                  </span>
-                  <span className="font-display text-2xl font-semibold tracking-[-0.05em] text-[var(--foreground)]">
-                    {SITE_NAME}
-                  </span>
+                  <BrandLogo className="h-auto w-[112px] sm:w-[132px]" />
                 </div>
                 <p className="mt-5 max-w-md text-sm leading-7 text-[var(--muted)]">
                   Software a medida, productos empresariales y decisiones técnicas

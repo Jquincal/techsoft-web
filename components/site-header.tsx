@@ -4,7 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, MessageCircleMore, X } from "lucide-react";
 import { useState } from "react";
-import { SITE_NAME, SITE_ROUTES, navigation } from "@/content/site";
+import { BrandLogo } from "@/components/brand-logo";
+import { SITE_ROUTES, navigation } from "@/content/site";
 import { primaryWhatsAppUrl } from "@/lib/whatsapp";
 
 function isActive(pathname: string, matches: string[]) {
@@ -23,12 +24,7 @@ export function SiteHeader() {
             href={SITE_ROUTES.home}
             className="flex min-w-0 flex-1 items-center gap-3 text-[var(--foreground)] lg:flex-none"
           >
-            <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#0f172a,#2563eb)] font-display text-lg font-bold text-white shadow-lg shadow-blue-500/20">
-              T
-            </span>
-            <span className="truncate font-display text-base font-semibold tracking-[-0.04em] sm:text-xl">
-              {SITE_NAME}
-            </span>
+            <BrandLogo priority className="h-auto w-[92px] sm:w-[112px]" />
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">

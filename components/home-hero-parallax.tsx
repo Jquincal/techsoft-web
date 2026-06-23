@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  MotionValue,
   motion,
   useReducedMotion,
   useScroll,
@@ -21,10 +20,9 @@ interface HeroParallaxProps {
 }
 
 export function HomeHeroParallax({ products }: HeroParallaxProps) {
-  const repeated = Array.from({ length: 15 }, (_, index) => products[index % products.length]);
-  const firstRow = repeated.slice(0, 5);
-  const secondRow = repeated.slice(5, 10);
-  const thirdRow = repeated.slice(10, 15);
+  const repeated = Array.from({ length: 8 }, (_, index) => products[index % products.length]);
+  const firstRow = repeated.slice(0, 4);
+  const secondRow = repeated.slice(4, 8);
   const ref = useRef<HTMLDivElement | null>(null);
   const prefersReducedMotion = useReducedMotion();
 
@@ -33,29 +31,21 @@ export function HomeHeroParallax({ products }: HeroParallaxProps) {
     offset: ["start start", "end start"],
   });
 
-  const springConfig = { stiffness: 220, damping: 28, bounce: 0 };
+  const springConfig = { stiffness: 90, damping: 24, mass: 0.35, bounce: 0 };
   const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, prefersReducedMotion ? 0 : 620]),
+    useTransform(scrollYProgress, [0, 1], [0, prefersReducedMotion ? 0 : 320]),
     springConfig,
   );
   const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, prefersReducedMotion ? 0 : -620]),
-    springConfig,
-  );
-  const rotateX = useSpring(
-    useTransform(scrollYProgress, [0, 0.18], [12, 0]),
+    useTransform(scrollYProgress, [0, 1], [0, prefersReducedMotion ? 0 : -320]),
     springConfig,
   );
   const opacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.16], [0.42, 1]),
-    springConfig,
-  );
-  const rotateZ = useSpring(
-    useTransform(scrollYProgress, [0, 0.18], [10, 0]),
+    useTransform(scrollYProgress, [0, 0.18], [0.56, 1]),
     springConfig,
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-120, 120]),
+    useTransform(scrollYProgress, [0, 0.24], [32, -12]),
     springConfig,
   );
 
@@ -101,7 +91,7 @@ export function HomeHeroParallax({ products }: HeroParallaxProps) {
                       src={product.image}
                       alt={product.title}
                       fill
-                      unoptimized
+                      sizes="18rem"
                       className="object-cover"
                     />
                   </div>
@@ -123,10 +113,7 @@ export function HomeHeroParallax({ products }: HeroParallaxProps) {
         </div>
       </section>
 
-      <section
-        ref={ref}
-        className="relative hidden h-[230vh] overflow-hidden lg:block"
-      >
+      <section ref={ref} className="relative hidden h-[185vh] overflow-hidden lg:block">
         <div className="hero-grid absolute inset-0 opacity-70" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.24),transparent_25%),radial-gradient(circle_at_bottom_right,rgba(8,17,32,0.12),transparent_22%)]" />
 
@@ -163,37 +150,31 @@ export function HomeHeroParallax({ products }: HeroParallaxProps) {
 
             <motion.div
               style={{
-                rotateX,
-                rotateZ,
                 y: translateY,
                 opacity,
               }}
-              className="mt-18 [perspective:1400px] [transform-style:preserve-3d]"
+              className="mt-16 space-y-6"
             >
-              <motion.div className="mb-8 flex flex-row-reverse gap-8">
+              <motion.div
+                style={{ x: translateX }}
+                className="flex flex-row-reverse gap-6 will-change-transform"
+              >
                 {firstRow.map((product) => (
                   <ProductCard
                     key={`${product.title}-first`}
                     product={product}
-                    translate={translateX}
                   />
                 ))}
               </motion.div>
-              <motion.div className="mb-8 flex flex-row gap-8">
+
+              <motion.div
+                style={{ x: translateXReverse }}
+                className="flex flex-row gap-6 will-change-transform"
+              >
                 {secondRow.map((product) => (
                   <ProductCard
                     key={`${product.title}-second`}
                     product={product}
-                    translate={translateXReverse}
-                  />
-                ))}
-              </motion.div>
-              <motion.div className="flex flex-row-reverse gap-8">
-                {thirdRow.map((product) => (
-                  <ProductCard
-                    key={`${product.title}-third`}
-                    product={product}
-                    translate={translateX}
                   />
                 ))}
               </motion.div>
@@ -205,22 +186,15 @@ export function HomeHeroParallax({ products }: HeroParallaxProps) {
   );
 }
 
-function ProductCard({
-  product,
-  translate,
-}: {
-  product: HeroCard;
-  translate: MotionValue<number>;
-}) {
+function ProductCard({ product }: { product: HeroCard }) {
   return (
     <motion.div
-      style={{
-        x: translate,
-      }}
       whileHover={{
-        y: -18,
+        y: -10,
+        scale: 1.01,
       }}
-      className="group/product relative h-[27rem] w-[30rem] flex-shrink-0 overflow-hidden rounded-[34px] border border-white/65 bg-white shadow-[var(--shadow-hero)]"
+      transition={{ duration: 0.24, ease: "easeOut" }}
+      className="group/product relative h-[24rem] w-[22rem] flex-shrink-0 overflow-hidden rounded-[34px] border border-white/65 bg-white shadow-[var(--shadow-hero)]"
     >
       <Link href={product.link} className="relative block h-full w-full">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,17,32,0.04),rgba(8,17,32,0.34))]" />
@@ -228,7 +202,7 @@ function ProductCard({
           src={product.image}
           alt={product.title}
           fill
-          unoptimized
+          sizes="22rem"
           className="object-cover object-center transition duration-500 group-hover/product:scale-[1.02]"
         />
         <div className="absolute inset-x-0 top-0 flex items-center justify-between p-5">

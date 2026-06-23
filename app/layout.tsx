@@ -15,8 +15,8 @@ const headingFont = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL("https://techsoft-web.vercel.app"),
   icons: {
-    icon: "/brand/techsoft-logo.jpg",
-    shortcut: "/brand/techsoft-logo.jpg",
+    icon: "/brand/techsoft-logo.svg",
+    shortcut: "/brand/techsoft-logo.svg",
   },
   title: {
     default: "TechSoft Solutions | Estudio de software y productos digitales",

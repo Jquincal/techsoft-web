@@ -11,11 +11,12 @@ export function BrandLogo({
 }: BrandLogoProps) {
   return (
     <Image
-      src="/brand/techsoft-logo.jpg"
+      src="/brand/techsoft-logo.svg"
       alt="TechSoft Solutions"
-      width={6500}
-      height={2875}
+      width={2000}
+      height={2000}
       priority={priority}
+      unoptimized
       className={className}
     />
   );

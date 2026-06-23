@@ -1,9 +1,19 @@
 (function () {
   var whatsappNumber = "5492615753165";
   var forms = document.querySelectorAll("form[data-whatsapp-form]");
+  var productButtons = document.querySelectorAll("[data-whatsapp-product]");
 
-  if (!forms.length) {
+  if (!forms.length && !productButtons.length) {
     return;
+  }
+
+  function buildWhatsAppUrl(lines) {
+    return (
+      "https://wa.me/" +
+      whatsappNumber +
+      "?text=" +
+      encodeURIComponent(lines.join("\n"))
+    );
   }
 
   function fieldValue(form, selector) {
@@ -64,11 +74,23 @@
 
       lines.push("", "Mensaje:", message);
 
-      window.location.href =
-        "https://wa.me/" +
-        whatsappNumber +
-        "?text=" +
-        encodeURIComponent(lines.join("\n"));
+      window.location.href = buildWhatsAppUrl(lines);
+    });
+  });
+
+  productButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      var productName = button.dataset.whatsappProduct || "un producto";
+      var lines = [
+        "Hola, te contacto desde la web de TechSoft.",
+        "",
+        "Origen: Productos",
+        "Producto de interés: " + productName,
+        "",
+        "Quisiera recibir más información."
+      ];
+
+      window.location.href = buildWhatsAppUrl(lines);
     });
   });
 })();
